@@ -19,6 +19,7 @@ jobs:
       workingDirectory: serverpod_json_rpc_2_server
       unitTestPaths: ""
       minCoverage: 0
+      panaScoreThreshold: 20
 
   cd:
     name: CD
