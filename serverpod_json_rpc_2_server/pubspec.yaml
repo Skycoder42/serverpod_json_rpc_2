@@ -1,5 +1,7 @@
 name: serverpod_json_rpc_2_server
-description: Starting point for a Serverpod module.
+description: The server package for the serverpod_json_rpc_2 module for JSON RPC 2.0.
+version: 1.0.0
+homepage: https://github.com/Skycoder42/serverpod_json_rpc_2
 
 environment:
   sdk: ^3.3.0
@@ -7,8 +9,8 @@ environment:
 dependencies:
   json_rpc_2: ^3.0.2
   meta: ^1.11.0
-  serverpod: 1.2.5
-  serverpod_json_rpc_2_shared: 1.0.0
+  serverpod: ^1.2.5
+  serverpod_json_rpc_2_shared: ^1.0.0
   stream_channel: ^2.1.2
 
 dev_dependencies:
@@ -17,7 +19,11 @@ dev_dependencies:
   dart_test_tools: ^5.7.0
 
 dart_pre_commit:
-  flutter-compat: false
   pull-up-dependencies:
     allowed:
       - meta
+
+cider:
+  link_template:
+    tag: https://github.com/Skycoder42/serverpod_json_rpc_2/releases/tag/serverpod_json_rpc_2_server-v%tag%
+    diff: https://github.com/Skycoder42/serverpod_json_rpc_2/compare/serverpod_json_rpc_2_server-v%from%...serverpod_json_rpc_2_server-v%to%

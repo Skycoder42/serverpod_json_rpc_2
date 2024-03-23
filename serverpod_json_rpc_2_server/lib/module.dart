@@ -1,3 +1,6 @@
+/// The module entrypoint
+library protocol;
+
 export 'src/channels/endpoint_rpc.dart';
 export 'src/channels/endpoint_stream_channel.dart';
 
