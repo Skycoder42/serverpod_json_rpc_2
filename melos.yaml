@@ -1,0 +1,29 @@
+name: systemd_status
+
+packages:
+  - serverpod_json_rpc_2_server
+  - serverpod_json_rpc_2_client
+
+scripts:
+  get:
+    run: dart pub global run melos exec -- dart pub get
+    description: Run 'pub get' in all projects
+
+  upgrade:
+    run: dart pub global run melos exec -- dart pub upgrade --major-versions
+    description: Run 'pub get' in all projects
+
+  pre-commit:init:
+    run: >-
+      bash -c "echo -e
+      '#!/bin/sh\nexec dart pub global run melos run pre-commit:run'
+      > .git/hooks/pre-commit && chmod a+x .git/hooks/pre-commit"
+    description: Setup pre commit hooks
+
+  pre-commit:remove:
+    run: rm -f .git/hooks/pre-commit
+    description: Remove pre commit hooks
+
+  pre-commit:run:
+    run: dart pub global run melos exec -c1 --depends-on=dart_pre_commit -- dart run dart_pre_commit
+    description: Run pre commit hooks in all projects
