@@ -6,6 +6,7 @@ environment:
 
 dependencies:
   json_rpc_2: ^3.0.2
+  meta: ^1.11.0
   serverpod: 1.2.5
   serverpod_json_rpc_2_shared: 1.0.0
   stream_channel: ^2.1.2
@@ -17,3 +18,6 @@ dev_dependencies:
 
 dart_pre_commit:
   flutter-compat: false
+  pull-up-dependencies:
+    allowed:
+      - meta

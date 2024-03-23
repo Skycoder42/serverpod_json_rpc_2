@@ -2,10 +2,11 @@ import 'package:serverpod_serialization/serverpod_serialization.dart';
 
 /// An internal helper model to wrap JSON RPC 2.0 messages
 class JsonRpc2Message with SerializableEntity {
-  final dynamic _raw;
+  /// The raw json data being wrapped
+  final dynamic raw;
 
-  /// @nodoc
-  JsonRpc2Message.raw(this._raw);
+  /// Construct message from [raw] json data
+  JsonRpc2Message(this.raw);
 
   /// @nodoc
   factory JsonRpc2Message.fromJson(
@@ -13,8 +14,9 @@ class JsonRpc2Message with SerializableEntity {
     // ignore: avoid_unused_constructor_parameters
     SerializationManager serializationManager,
   ) =>
-      JsonRpc2Message.raw(json);
+      JsonRpc2Message(json);
 
+  /// @nodoc
   @override
-  dynamic toJson() => _raw;
+  dynamic toJson() => raw;
 }
