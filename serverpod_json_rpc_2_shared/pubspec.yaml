@@ -8,7 +8,7 @@ environment:
 
 dependencies:
   json_rpc_2: ^3.0.2
-  serverpod_serialization: 1.2.5
+  serverpod_serialization: ^1.2.5
   stream_channel: ^2.1.2
 
 dev_dependencies:
