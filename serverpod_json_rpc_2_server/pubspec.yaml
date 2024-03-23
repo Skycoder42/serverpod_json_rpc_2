@@ -1,0 +1,11 @@
+name: serverpod_json_rpc_2_server
+description: Starting point for a Serverpod module.
+
+environment:
+  sdk: '>=3.0.0 <4.0.0'
+
+dependencies:
+  serverpod: 1.2.5
+
+dev_dependencies:
+  lints: ^3.0.0
