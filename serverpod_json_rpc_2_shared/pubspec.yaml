@@ -1,6 +1,7 @@
 name: serverpod_json_rpc_2_shared
-description: A starting point for Dart libraries or applications.
+description: A helper package that contains shared code the for serverpod_json_rpc_2 module.
 version: 1.0.0
+homepage: https://github.com/Skycoder42/serverpod_json_rpc_2
 
 environment:
   sdk: ^3.3.0
@@ -14,3 +15,8 @@ dev_dependencies:
   custom_lint: ^0.6.4
   dart_pre_commit: ^5.3.0
   dart_test_tools: ^5.7.0
+
+cider:
+  link_template:
+    tag: https://github.com/Skycoder42/serverpod_json_rpc_2/releases/tag/serverpod_json_rpc_2_shared-v%tag%
+    diff: https://github.com/Skycoder42/serverpod_json_rpc_2/compare/serverpod_json_rpc_2_shared-v%from%...serverpod_json_rpc_2_shared-v%to%

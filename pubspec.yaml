@@ -1,4 +1,4 @@
-name: systemd_status_melos
+name: serverpod_json_rpc_2_melos
 
 environment:
   sdk: ^3.3.0
