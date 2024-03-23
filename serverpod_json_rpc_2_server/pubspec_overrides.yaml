@@ -1,0 +1,3 @@
+dependency_overrides:
+  serverpod_json_rpc_2_shared:
+    path: ../serverpod_json_rpc_2_shared

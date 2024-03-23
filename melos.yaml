@@ -1,6 +1,7 @@
 name: systemd_status
 
 packages:
+  - serverpod_json_rpc_2_shared
   - serverpod_json_rpc_2_server
   - serverpod_json_rpc_2_client
 

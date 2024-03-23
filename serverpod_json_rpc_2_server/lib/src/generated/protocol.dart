@@ -11,8 +11,8 @@ library protocol; // ignore_for_file: no_leading_underscores_for_library_prefixe
 
 import 'package:serverpod/serverpod.dart' as _i1;
 import 'package:serverpod/protocol.dart' as _i2;
-import 'module_class.dart' as _i3;
-export 'module_class.dart';
+import 'package:serverpod_json_rpc_2_shared/serverpod_json_rpc_2_shared.dart'
+    as _i3;
 
 class Protocol extends _i1.SerializationManagerServer {
   Protocol._();
@@ -34,11 +34,12 @@ class Protocol extends _i1.SerializationManagerServer {
     if (customConstructors.containsKey(t)) {
       return customConstructors[t]!(data, this) as T;
     }
-    if (t == _i3.ModuleClass) {
-      return _i3.ModuleClass.fromJson(data, this) as T;
+    if (t == _i3.JsonRpc2Message) {
+      return _i3.JsonRpc2Message.fromJson(data, this) as T;
     }
-    if (t == _i1.getType<_i3.ModuleClass?>()) {
-      return (data != null ? _i3.ModuleClass.fromJson(data, this) : null) as T;
+    if (t == _i1.getType<_i3.JsonRpc2Message?>()) {
+      return (data != null ? _i3.JsonRpc2Message.fromJson(data, this) : null)
+          as T;
     }
     try {
       return _i2.Protocol().deserialize<T>(data, t);
@@ -48,16 +49,16 @@ class Protocol extends _i1.SerializationManagerServer {
 
   @override
   String? getClassNameForObject(Object data) {
-    if (data is _i3.ModuleClass) {
-      return 'ModuleClass';
+    if (data is _i3.JsonRpc2Message) {
+      return 'JsonRpc2Message';
     }
     return super.getClassNameForObject(data);
   }
 
   @override
   dynamic deserializeByClassName(Map<String, dynamic> data) {
-    if (data['className'] == 'ModuleClass') {
-      return deserialize<_i3.ModuleClass>(data['data']);
+    if (data['className'] == 'JsonRpc2Message') {
+      return deserialize<_i3.JsonRpc2Message>(data['data']);
     }
     return super.deserializeByClassName(data);
   }
