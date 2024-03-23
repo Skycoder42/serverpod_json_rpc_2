@@ -9,3 +9,6 @@ A serverpod module that allows to use JSON RPC 2.0 via the [json_rpc_2 package](
 - [serverpod_json_rpc_2_server](https://github.com/Skycoder42/serverpod_json_rpc_2/tree/main/serverpod_json_rpc_2_server)
 [![CI for package serverpod_json_rpc_2_server](https://github.com/Skycoder42/serverpod_json_rpc_2/actions/workflows/server_ci.yaml/badge.svg)](https://github.com/Skycoder42/serverpod_json_rpc_2/actions/workflows/server_ci.yaml)
 [![serverpod_json_rpc_2_server pub.dev version](https://img.shields.io/pub/v/serverpod_json_rpc_2_server)](https://pub.dev/packages/serverpod_json_rpc_2_server)
+- [serverpod_json_rpc_2_client](https://github.com/Skycoder42/serverpod_json_rpc_2/tree/main/serverpod_json_rpc_2_client)
+[![CI for package serverpod_json_rpc_2_client](https://github.com/Skycoder42/serverpod_json_rpc_2/actions/workflows/client_ci.yaml/badge.svg)](https://github.com/Skycoder42/serverpod_json_rpc_2/actions/workflows/client_ci.yaml)
+[![serverpod_json_rpc_2_client pub.dev version](https://img.shields.io/pub/v/serverpod_json_rpc_2_client)](https://pub.dev/packages/serverpod_json_rpc_2_client)

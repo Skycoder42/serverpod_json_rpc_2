@@ -1,0 +1,33 @@
+name: CI/CD for serverpod_json_rpc_2_client
+
+on:
+  workflow_dispatch:
+  push:
+    paths:
+      - serverpod_json_rpc_2_client/**
+      - .github/workflows/client_*.yaml
+  pull_request:
+    types:
+      - opened
+      - synchronize
+
+jobs:
+  ci:
+    name: CI
+    uses: Skycoder42/dart_test_tools/.github/workflows/dart.yml@main
+    with:
+      workingDirectory: serverpod_json_rpc_2_client
+      unitTestPaths: ""
+      minCoverage: 0
+      panaScoreThreshold: 20
+
+  cd:
+    name: CD
+    uses: Skycoder42/dart_test_tools/.github/workflows/release.yml@main
+    needs:
+      - ci
+    with:
+      workingDirectory: serverpod_json_rpc_2_client
+      tagPrefix: serverpod_json_rpc_2_client-v
+    secrets:
+      githubToken: ${{ secrets.GH_PAT }}
