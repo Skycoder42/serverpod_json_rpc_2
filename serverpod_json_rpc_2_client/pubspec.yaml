@@ -1,6 +1,6 @@
 name: serverpod_json_rpc_2_client
 description: The client package for the serverpod_json_rpc_2 module for JSON RPC 2.0.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Skycoder42/serverpod_json_rpc_2
 
 environment:

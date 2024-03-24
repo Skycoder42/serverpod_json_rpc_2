@@ -3,8 +3,6 @@ import 'dart:async';
 import 'package:serverpod_client/serverpod_client.dart';
 import 'package:stream_channel/stream_channel.dart';
 
-import 'invalid_streaming_status_exception.dart';
-
 /// An extensions for generic [EndpointRef]s that allows to access the endpoints
 /// websocket connection via a [StreamChannel].
 ///
@@ -23,6 +21,9 @@ import 'invalid_streaming_status_exception.dart';
 /// [StreamChannel.stream], but it will **not** close the websocket connection!
 /// This is because multiple endpoints could be using the same connection. If
 /// you need to close the connection, use
+/// 4. It is allowed to call [createStreamChannel] before
+/// [ServerpodClientShared.openStreamingConnection]. However, in that case you
+/// **must not** add any messages to the [StreamChannel.sink] before doing so.
 /// [ServerpodClientShared.closeStreamingConnection]. Please note that closing
 /// the *sink* will **not** notify the server at all. Further messages received
 /// from the server will be silently dropped.
@@ -32,16 +33,7 @@ extension EndpointStreamChannel on EndpointRef {
   /// If a previous channel already exists it will be closed, meaning the
   /// [StreamChannel.stream] will emit the done event and adding more messages
   /// to the[StreamChannel.sink] will have no effect.
-  ///
-  /// If the [ServerpodClientShared.streamingConnectionStatus] is not
-  /// [StreamingConnectionStatus.connected], this method will throw a
-  /// [InvalidStreamingStatusException].
   StreamChannel<SerializableEntity> createStreamChannel() {
-    if (client.streamingConnectionStatus !=
-        StreamingConnectionStatus.connected) {
-      throw InvalidStreamingStatusException(client.streamingConnectionStatus);
-    }
-
     resetStream();
 
     final controller = StreamChannelController<SerializableEntity>(
