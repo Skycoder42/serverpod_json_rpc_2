@@ -5,11 +5,28 @@ import 'package:stream_channel/stream_channel.dart';
 
 import 'json_rpc_2_message.dart';
 
+class _ProxySink<TIn, TOut> implements Sink<TIn> {
+  final Sink<TOut> sink;
+  final TOut Function(TIn data) converter;
+
+  const _ProxySink(this.sink, this.converter);
+
+  @override
+  void add(TIn data) => sink.add(converter(data));
+
+  @override
+  void close() => sink.close();
+}
+
 class _RpcEncoder extends Converter<dynamic, SerializableEntity> {
   const _RpcEncoder();
 
   @override
   SerializableEntity convert(dynamic input) => JsonRpc2Message(input);
+
+  @override
+  Sink startChunkedConversion(Sink<SerializableEntity> sink) =>
+      _ProxySink(sink, convert);
 }
 
 class _RpcDecoder extends Converter<SerializableEntity, dynamic> {
@@ -18,6 +35,10 @@ class _RpcDecoder extends Converter<SerializableEntity, dynamic> {
   @override
   dynamic convert(SerializableEntity input) =>
       input is JsonRpc2Message ? input.raw : input;
+
+  @override
+  Sink<SerializableEntity> startChunkedConversion(Sink sink) =>
+      _ProxySink(sink, convert);
 }
 
 class _RpcCodec extends Codec<dynamic, SerializableEntity> {

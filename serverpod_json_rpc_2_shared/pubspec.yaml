@@ -1,6 +1,6 @@
 name: serverpod_json_rpc_2_shared
 description: A helper package that contains shared code the for serverpod_json_rpc_2 module.
-version: 1.0.0
+version: 1.0.1
 homepage: https://github.com/Skycoder42/serverpod_json_rpc_2
 
 environment:
